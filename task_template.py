@@ -20,7 +20,7 @@ OUTPUT_CSV = Path("submission.csv")
 
 BASE_URL = "http://35.192.205.84:80"
 API_KEY = "YOUR_API_KEY_HERE"
-TASK_ID = "your-mia-task-id"
+TASK_ID = "01-mia"
 
 
 
