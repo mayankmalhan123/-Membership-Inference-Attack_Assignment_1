@@ -84,7 +84,7 @@ model.load_state_dict(torch.load(MODEL_PATH, map_location="cpu"))
 model.eval()
 
 
-# create random submission
+# create random submission (remove this later or it will rewrite your actual submission)
 print("Creating random submission...")
 ids = [str(i) for i in priv_ds.ids]
 
