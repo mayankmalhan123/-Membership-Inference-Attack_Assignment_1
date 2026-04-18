@@ -102,7 +102,7 @@ def die(msg):
     print(msg, file=sys.stderr)
     sys.exit(1)
 
-parser = argparse.ArgumentParser(description="Submit a JSONL file to the server.")
+parser = argparse.ArgumentParser(description="Submit a CSV file to the server.")
 args = parser.parse_args()
 
 submit_path = OUTPUT_CSV
@@ -115,7 +115,7 @@ try:
         resp = requests.post(
             f"{BASE_URL}/submit/{TASK_ID}",
             headers={"X-API-Key": API_KEY},
-            files={"file": (submit_path.name, f, "application/jsonl")},
+            files={"file": (submit_path.name, f, "application/csv")},
             timeout=(10, 600),
         )
     try:
