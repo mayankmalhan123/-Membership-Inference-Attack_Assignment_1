@@ -9,6 +9,7 @@ import argparse
 from pathlib import Path
 from torch.utils.data import Dataset
 from torchvision.models import resnet18
+import torchvision.transforms as transforms
 
 
 # config
@@ -57,6 +58,19 @@ class MembershipDataset(TaskDataset):
 print("Loading datasets...")
 pub_ds = torch.load(PUB_PATH, weights_only=False)
 priv_ds = torch.load(PRIV_PATH, weights_only=False)
+
+
+# normalization (same as training)
+MEAN = [0.7406, 0.5331, 0.7059]
+STD = [0.1491, 0.1864, 0.1301]
+
+transform = transforms.Compose([
+    transforms.Resize(32),
+    transforms.Normalize(mean=MEAN, std=STD),
+])
+
+pub_ds.transform = transform
+priv_ds.transform = transform
 
 
 # load model
