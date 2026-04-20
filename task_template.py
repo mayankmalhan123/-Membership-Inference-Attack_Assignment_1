@@ -13,10 +13,11 @@ import torchvision.transforms as transforms
 
 
 # config
-PUB_PATH = "pub.pt"
-PRIV_PATH = "priv.pt"
-MODEL_PATH = "model.pt"
-OUTPUT_CSV = Path("submission.csv")
+BASE = Path(__file__).parent
+PUB_PATH = BASE / "pub.pt"
+PRIV_PATH = BASE / "priv.pt"
+MODEL_PATH = BASE / "model.pt"
+OUTPUT_CSV = BASE / "submission.csv"
 
 BASE_URL = "http://35.192.205.84:80"
 API_KEY = "YOUR_API_KEY_HERE"
