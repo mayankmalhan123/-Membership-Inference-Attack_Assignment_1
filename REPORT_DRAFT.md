@@ -1,6 +1,6 @@
 # Membership Inference Attack on a ResNet-18 Image Classifier
 
-GitHub repository URL: `REPLACE_WITH_YOUR_GITHUB_REPO_URL`
+GitHub repository URL: `https://github.com/mayankmalhan123/-Membership-Inference-Attack_Assignment_1`
 
 ## Introduction
 
@@ -26,7 +26,7 @@ To validate the method, I split `pub.pt` into attack-train and attack-validation
 
 The strongest simple baselines, such as true-label confidence and negative loss, achieved only about `0.0507` TPR at `5%` FPR on the public data, which is close to random performance. In contrast, the learned attack improved the validation score to about `0.0756` TPR at `5%` FPR, with a ROC-AUC of about `0.5246`. This result shows that the target model leaks some membership information, but that the leakage is weak and requires combining multiple output-based signals.
 
-Public leaderboard score: `REPLACE_WITH_YOUR_BEST_PUBLIC_LEADERBOARD_SCORE`
+Public leaderboard score: `Pending first public leaderboard submission`
 
 ## Conclusion
 
