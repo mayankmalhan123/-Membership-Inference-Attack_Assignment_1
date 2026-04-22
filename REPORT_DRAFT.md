@@ -26,7 +26,7 @@ To validate the method, I split `pub.pt` into attack-train and attack-validation
 
 The strongest simple baselines, such as true-label confidence and negative loss, achieved only about `0.0507` TPR at `5%` FPR on the public data, which is close to random performance. In contrast, the learned attack improved the validation score to about `0.0756` TPR at `5%` FPR, with a ROC-AUC of about `0.5246`. This result shows that the target model leaks some membership information, but that the leakage is weak and requires combining multiple output-based signals.
 
-Public leaderboard score: `Pending first public leaderboard submission`
+My public leaderboard score was `0.047823`. This is lower than the local hold-out score, and in fact slightly below the near-random `0.05` level for this metric. The most likely explanation is that the attack model overfit mildly to the public development split and did not generalize well to the hidden public leaderboard subset of `priv.pt`. Since TPR@5%FPR focuses only on the extreme top of the ranking, even a small shift in score ordering between local validation data and the hidden evaluation subset can noticeably reduce the final leaderboard result. This outcome is still informative: it confirms that the leakage signal is weak, unstable, and sensitive to distribution shift, which is exactly why careful validation and conservative conclusions are important in membership inference.
 
 ## Conclusion
 
