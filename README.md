@@ -19,4 +19,4 @@ python guided_attack.py --mode both
 
 5. The command writes `submission.csv` in the repository root.
 
-6. To submit the file to the leaderboard, set your API key in `task_template.py` and use the provided submission code.
+6. To submit the file to the leaderboard, either export `TML_API_KEY` or create a local `.submission_api_key` file next to `task_template.py`. Do not commit the live API key to GitHub.

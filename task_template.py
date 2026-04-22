@@ -18,10 +18,24 @@ PUB_PATH = BASE / "pub.pt"
 PRIV_PATH = BASE / "priv.pt"
 MODEL_PATH = BASE / "model.pt"
 OUTPUT_CSV = BASE / "submission.csv"
+API_KEY_PATH = BASE / ".submission_api_key"
 
-BASE_URL = "http://35.192.205.84:80"
-API_KEY = "YOUR_API_KEY_HERE"
+BASE_URL = "http://34.63.153.158"
 TASK_ID = "01-mia"
+
+
+def load_api_key():
+    env_key = os.environ.get("TML_API_KEY")
+    if env_key:
+        return env_key.strip()
+
+    if API_KEY_PATH.exists():
+        return API_KEY_PATH.read_text(encoding="utf-8").strip()
+
+    return "YOUR_API_KEY_HERE"
+
+
+API_KEY = load_api_key()
 
 
 
@@ -110,6 +124,12 @@ submit_path = OUTPUT_CSV
 
 if not submit_path.exists():
     die(f"File not found: {submit_path}")
+
+if not API_KEY or API_KEY == "YOUR_API_KEY_HERE":
+    die(
+        "Missing API key. Set TML_API_KEY or create a local .submission_api_key "
+        "file next to task_template.py."
+    )
 
 try:
     with open(submit_path, "rb") as f:
