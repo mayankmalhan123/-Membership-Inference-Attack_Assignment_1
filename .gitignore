@@ -1,5 +1,13 @@
 # Data files (large; download with the wget commands in README §1)
+# GitHub blocks files >100MB, so keep these out of commits.
+priv.pt
+pub.pt
+
+# Treat other checkpoints as local by default.
 *.pt
+
+# Allow committing the smaller public model if needed.
+!model.pt
 
 # Cluster / pipeline state and logs
 shadows/
